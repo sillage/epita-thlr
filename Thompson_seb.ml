@@ -2,7 +2,7 @@
     @author GISLAIS SEBASTIEN
     @author NOM2 PRENOM2
   *)
-(* open AlgorithmBase *)
+open AlgorithmBase
 open Automaton
 open AlgorithmBase.EpsilonAutomaton
 open Re
@@ -21,7 +21,7 @@ let my_empty = Automaton.empty
 let create_letter a =
   let s1 = create_state 1 true  false in
   let s2 = create_state 2 false true in
-  let t1 = create_transistion s1 a s2 in
+  let t1 = create_transition s1 a s2 in
     ((List.fold_left
 	Automaton.add_transition
 	(List.fold_left
@@ -122,7 +122,7 @@ let rec thompsonrec ~re =
 let apply ~re = 
   match (thompsonrec re) with
       (a,ai,af) -> a
-    | assert false
+    | _ -> assert false
 
 
 (* j'sais pas trop comment faire avec let _ : *)
